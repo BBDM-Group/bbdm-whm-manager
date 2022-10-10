@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
    name='WhamBamPy',
-   version='0.0.4',
+   version='0.0.5',
    author='Dmitry Minin',
    author_email='dmitry.m@bbdmgroup.com',
    packages=['whambampy'],
@@ -20,5 +20,5 @@ setuptools.setup(
       "requests==2.28.1",
       "urllib3==1.26.12"
    ],
-   download_url="https://github.com/BBDM-Group/bbdm-whm-manager/archive/refs/tags/0.0.4.tar.gz"
+   download_url="https://github.com/BBDM-Group/bbdm-whm-manager/archive/refs/tags/0.0.5.tar.gz"
 )
