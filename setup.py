@@ -19,4 +19,5 @@ setuptools.setup(
       "requests==2.28.1",
       "urllib3==1.26.12"
    ],
+   download_url="https://github.com/BBDM-Group/bbdm-whm-manager/archive/refs/tags/0.0.1.tar.gz"
 )
