@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 class WHM:
     def __init__(self, host, username, api_token, *args, **kwargs):
         self.host = host
-        self.username = username,
+        self.username = username
         self.api_token = api_token
 
         self._api_version = kwargs.get('api_version', API_VERSION)
