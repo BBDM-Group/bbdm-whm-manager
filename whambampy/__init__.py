@@ -1,2 +1,2 @@
-from whm import whm
-import utils
+from whambampy.whm import whm
+from whambampy import utils
