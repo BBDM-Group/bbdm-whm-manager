@@ -4,8 +4,8 @@ import urllib3
 
 from typing import Any
 
-from api_commands import API_COMMANDS
-from defaults import *
+from whambampy.api_commands import API_COMMANDS
+from whambampy.defaults import *
 
 from urllib3.exceptions import InsecureRequestWarning
 
