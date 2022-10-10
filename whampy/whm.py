@@ -1,10 +1,16 @@
 import logging
 import requests
+import urllib3
+
+from typing import Any
 
 from api_commands import API_COMMANDS
 from defaults import *
 
+from urllib3.exceptions import InsecureRequestWarning
 
+
+urllib3.disable_warnings(InsecureRequestWarning)
 logger = logging.getLogger(__name__)
 
 
@@ -38,6 +44,22 @@ class WHM:
         if auth_resp.status_code != 200:
             raise PermissionError('Unable to login with the provided credentials')
         return auth_resp.json()['data'].get('cp_security_token')
+
+    def _validate_function(self, function: str) -> bool:
+        return function in API_COMMANDS
+
+    def call(self, function: str, **params) -> Any:
+        if self._validate_function(function):
+            params['api.version'] = self._api_version
+            url = f"{self._whm_protocol}{self.host}:{self._whm_port}{self._sec_token}/{self._api_type}/{function}"
+            return requests.get(
+                url=url,
+                headers=self._headers,
+                params=params,
+                verify=self._verify_ssl,
+            ).json()
+        else:
+            raise TypeError('Called function is not the list of available functions')
 
 
 def whm(host, username, api_token, *args, **kwargs):

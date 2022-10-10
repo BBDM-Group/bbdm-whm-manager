@@ -1,87 +1,46 @@
-# Python-WHM-Controller
-
-- New Version Of .Py WHM Controller
-
 ```
->>> ================================================================ <<<
->>>  ____  _    _  _____  _____  __          ___    _ __  __         <<<
->>> |  _ \| |  | |/ ____|/ ____| \ \        / / |  | |  \/  |        <<<
->>> | |_) | |  | | |  __| (___    \ \  /\  / /| |__| | \  / |        <<<
->>> |  _ <| |  | | | |_ |\___ \    \ \/  \/ / |  __  | |\/| |        <<<
->>> | |_) | |__| | |__| |____) |    \  /\  /  | |  | | |  | |        <<<
->>> |____/ \____/ \_____|_____/      \/  \/   |_|  |_|_|  |_|        <<<
->>> ================================================================ <<<
->>> Bugs New WHM Manager v3.0 @2020.                                 <<<
->>> ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
+>>> ========================================================== <<<
+>>>              _                                             <<<
+>>>   __      __| |__    __ _  _ __ ___   _ __   _   _         <<<
+>>>   \ \ /\ / /| '_ \  / _` || '_ ` _ \ | '_ \ | | | |        <<<
+>>>    \ V  V / | | | || (_| || | | | | || |_) || |_| |        <<<
+>>>     \_/\_/  |_| |_| \__,_||_| |_| |_|| .__/  \__, |        <<<
+>>>                                      |_|     |___/         <<<
+>>> ========================================================== <<<
 ```
+
+# Description
+
+This is a first version of the Python WHM API interface library
+While it was inspired by SIRBUGS script to create CPanels, while trying to adapt it
+to use as a library - it was completely reworked. 
+In the first version only a generic function call is implemented, which allows full control of
+the WHM panel, but lacks "convenience" functions for mostly used specific WHM Api functions.
 
 # Setup
 
 ```bash
-$ pip install requests
-```
-```bash
-$ pip install colorama
-```
-# Run
-
-```bash
-$ python X.py
+$ pip install whampy
 ```
 
 # Usage
-- First Tool [Create New CPanels] [1]
-  - Enter WHM Host Or IP.
-  - Enter 'root' Or Log Username.
-  - Enter Your WHM CPanel Password.
-  - Enter Your Email To Create Cpanels With.
-  - Enter Default Package Name $default.
-  - Enter Password To Create With.
-- Second Tool [All Cpanels Password Change] [2]
-  - Enter WHM Host Or IP.
-  - Enter 'root' Or Log Username.
-  - Enter Your WHM CPanel Password.
-  - Enter Password To Change Cpanels To.
-- Third Tool [Cpanels Password Change [Cpanels]] [2]
-  - Enter Your Cpanel File [https://test.com:2083/|username|password].
-  - Enter Password To Change Cpanels To.
 
-### Domains File Path:
-- The Domains File Path Have To Be Like:
-```bash
-test1.com
-test2.com
-test3.com
+```python
+def create_cpanel():
+  
+    from whampy import whm
+
+    whm = whm(host='example.com', username='whmuser', api_token='mysecuretoken')
+    result = whm.call(function='createacct', username='newuser', domain='new.example.com')
+    
+    if 'Creation Ok' in result['metadata'].get('reason'):
+        return True
 ```
 
-### Cpanels File Path:
-- The Cpanels File Path Have To Be Like:
-```bash
-https://test1.com:2083/|username1|password1
-https://test2.com:2083/|username2|password2
-https://test3.com:2083/|username3|password3
-```
 
-# FAQ
-[❓]: Which python version do i need?     
-[A]:  Python 2.7  
+Full list of WHM Api functions can be found in `api_commands.py`
 
-[❓]: Im not getting any Results?     
-[A]:  Check Your Internet Connection Or Ur Py Compiler Is Working Fine.
+Documentation regarding api contracts for each function can be found at `https://api.docs.cpanel.net/openapi/whm/operation/{{ function_name }}`
 
-[❓]: The Passwords Can Be Randomed?
-[A]:  No After Any Password The Script Generates A Random Number Between 1:999.
 
-# Come Out & Updates
-**09/06/2019:** First come out of the script (Beta) V1.0. 😃
-
-**06/06/2020:** Second Edition [Improved Creating Cpanels SYS *No Errors* + Added All WHM Cpanels Password Changer]. 😃
-
-**09/09/2020:** Third Edition [Used Sessions To Improve Working + Added Cpanels Password Changer From Cpanels]. 😃
-
-# Contacting
-**Facebook:** https://facebook.com/SIRBUGS
-
-Made with ❤️ in Egypt
-
-Coded By SIRBUGS ❤️
+Suggestions and contributions are always welcome. Any found bugs should be filed in issues 
