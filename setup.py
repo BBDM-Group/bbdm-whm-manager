@@ -1,13 +1,13 @@
 import setuptools
 
 setuptools.setup(
-   name='WhamPy',
+   name='WhamBamPy',
    version='0.0.1',
    author='Dmitry Minin',
    author_email='dmitry.m@bbdmgroup.com',
-   packages=['whampy'],
+   packages=['whambampy'],
    scripts=[],
-   url='http://pypi.python.org/pypi/whampy/',
+   url='http://pypi.python.org/pypi/whambampy/',
    license='LICENSE.txt',
    description='WHM Api interface',
    long_description=open('README.md').read(),
@@ -19,5 +19,5 @@ setuptools.setup(
       "requests==2.28.1",
       "urllib3==1.26.12"
    ],
-   download_url="https://github.com/BBDM-Group/bbdm-whm-manager/archive/refs/tags/0.0.1.tar.gz"
+   download_url="https://github.com/BBDM-Group/bbdm-whm-manager/archive/refs/tags/0.0.2.tar.gz"
 )

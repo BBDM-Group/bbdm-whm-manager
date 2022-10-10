@@ -20,19 +20,18 @@ the WHM panel, but lacks "convenience" functions for mostly used specific WHM Ap
 # Setup
 
 ```bash
-$ pip install whampy
+$ pip install whambampy
 ```
 
 # Usage
 
 ```python
 def create_cpanel():
-  
-    from whampy import whm
+    from whambampy import whm
 
     whm = whm(host='example.com', username='whmuser', api_token='mysecuretoken')
     result = whm.call(function='createacct', username='newuser', domain='new.example.com')
-    
+
     if 'Creation Ok' in result['metadata'].get('reason'):
         return True
 ```
