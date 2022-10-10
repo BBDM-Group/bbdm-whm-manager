@@ -10,7 +10,7 @@ setuptools.setup(
    url='http://pypi.python.org/pypi/whampy/',
    license='LICENSE.txt',
    description='WHM Api interface',
-   long_description=open('README.txt').read(),
+   long_description=open('README.md').read(),
    install_requires=[
       "certifi==2022.9.24",
       "charset-normalizer==2.1.1",
